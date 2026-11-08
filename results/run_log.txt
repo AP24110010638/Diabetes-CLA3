@@ -1,0 +1,54 @@
+Shape: (768, 9)
+Class balance:
+ Outcome
+0    500
+1    268
+Name: count, dtype: int64
+Zeros treated as missing: {'Glucose': 5, 'BloodPressure': 35, 'SkinThickness': 227, 'Insulin': 374, 'BMI': 11}
+Train/test: 576 192
+              Model  Accuracy  Precision  Recall_Sensitivity  Specificity    F1  ROC_AUC  CV_AUC_mean  CV_AUC_std  TP  TN  FP  FN
+Logistic Regression     0.724      0.630               0.507        0.840 0.562    0.824        0.831       0.023  34 105  20  33
+      Random Forest     0.745      0.661               0.552        0.848 0.602    0.811        0.818       0.014  37 106  19  30
+         k-NN (k=7)     0.724      0.625               0.522        0.832 0.569    0.782        0.802       0.025  35 104  21  32
+
+Standardised LR coefficients:
+ Glucose                     1.161
+BMI                         0.724
+Pregnancies                 0.440
+DiabetesPedigreeFunction    0.212
+Age                         0.126
+Insulin                    -0.031
+BloodPressure              -0.057
+SkinThickness              -0.058
+dtype: float64
+Intercept: -0.864
+
+CORRECT example:
+ Pregnancies                   0.000
+Glucose                     180.000
+BloodPressure                78.000
+SkinThickness                63.000
+Insulin                      14.000
+BMI                          59.400
+DiabetesPedigreeFunction      2.420
+Age                          25.000
+actual                        1.000
+pred                          1.000
+prob                          0.991
+Name: 445, dtype: float64
+
+INCORRECT example (missed diabetic):
+ Pregnancies                  3.000
+Glucose                     78.000
+BloodPressure               50.000
+SkinThickness               32.000
+Insulin                     88.000
+BMI                         31.000
+DiabetesPedigreeFunction     0.248
+Age                         26.000
+actual                       1.000
+pred                         0.000
+prob                         0.050
+Name: 6, dtype: float64
+
+Worked example z = 4.706 p = 0.991
